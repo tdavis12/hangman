@@ -54,7 +54,6 @@ print("You have selected a difficutly of {0}. Good Luck!" .format(length))
 
 word = pickWord(length)
 sWord = split(word)
-print(sWord)
 
 i = 0
 display = ""
@@ -66,10 +65,12 @@ lDisplay = list(display)
 
 correctCount = 0
 progress = 0
+guessed = ""
 while progress < 7:
 
   hangman(progress)
   print("".join(lDisplay))
+  print("Incorrect guesses: " + guessed + "\n")
 
   flag = 0
   while flag == 0:
@@ -92,6 +93,7 @@ while progress < 7:
 
   if correct == 0:
     print("Wrong!")
+    guessed += letter + " "
     progress += 1
 
   if correctCount == length:
